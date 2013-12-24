@@ -35,6 +35,13 @@ ADD ./config.example.js /data/ghost/config.js
 # Install Ghost with NPM
 RUN cd /data/ghost/ && npm install --production
 
+# Install Ghost themes from (Optional)
+RUN wget -c https://github.com/viktorbezdek/ghostentista/archive/master.zip -O ghostentista.zip
+RUN unzip -uo ghostentista.zip -d /data/ghost/content/themes
+
+RUN wget -c https://github.com/sethlilly/Vapor/archive/master.zip -O Vapor.zip
+RUN unzip -uo Vapor.zip -d /data/ghost/content/themes
+
 # Expose port 2368
 EXPOSE 2368
 
